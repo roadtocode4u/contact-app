@@ -17,6 +17,22 @@ function Home() {
   const [mobile, setMobile] = useState('');
 
   const addContact = () => {
+
+    if(!name){
+      showToast('Name is required', 'alert', 3000);
+      return;
+    }
+
+    if(!email){
+      showToast('Email is required', 'alert', 3000);
+      return;
+    }
+
+    if(!mobile){
+      showToast('Mobile is required', 'alert', 3000);
+      return;
+    }
+
     const obj = {
       name: name,
       email: email,
@@ -32,6 +48,22 @@ function Home() {
     setMobile('');
   };
 
+  const deleteContact = (mobileNumber) => {
+    let indexToDelete = -1;
+
+    contacts.forEach((contactDetail, index)=>{
+      if(contactDetail.mobile == mobileNumber){
+        indexToDelete = index;
+      }
+    })
+
+    contacts.splice(indexToDelete, 1);
+
+    setContacts([...contacts])
+
+    showToast('Contact Deleted Successfully', 'success', 3000);
+  }
+
   return (
     <div>
       <h1 className='app-title'>📞 Contact App</h1>
@@ -45,7 +77,8 @@ function Home() {
                 key={index}
                 name={contact.name}
                 email={contact.email}
-                mobile={contact.mobile} />)
+                mobile={contact.mobile}
+                deleteContact={deleteContact} />)
             })
           }
         </div>

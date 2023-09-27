@@ -5,6 +5,17 @@
   border-radius: 15px;
   background-color: #fff;
   box-shadow: 0 0 5px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.icon-delete-contact{
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+  padding: 3px;
+  border-radius: 50%;
 }
 
 .contact-name{
