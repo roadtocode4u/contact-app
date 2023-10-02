@@ -1,7 +1,7 @@
 import React from 'react';
 import "./ContactCard.css";
 
-function ContactCard({name, mobile, email, deleteContact}) {
+function ContactCard({name, mobile, email, deleteContact, enableEditMode, index}) {
   return (
     <div className='contact-card'>
       <p className='contact-name m-2'>🐼 {name}</p>
@@ -13,6 +13,14 @@ function ContactCard({name, mobile, email, deleteContact}) {
         }}
       >
         🗑️
+      </span>
+
+      <span className='icon-edit-contact'
+        onClick={()=>{
+          enableEditMode(index)
+        }}
+      >
+        🖊️
       </span>
     </div>
   )
